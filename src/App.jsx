@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
+//our map
+import MapView from './MapView.jsx';
+
 
 function App() {
   const [query, setQuery] = useState('');
@@ -42,6 +45,7 @@ function App() {
   //form
   function handleSubmit(e) {
     e.preventDefault();
+    fetchIpData(query.trim());
 
     //see what its doing 
     console.log('searching:', query);
@@ -55,8 +59,10 @@ function App() {
         <input type="text" placeholder="Search for any IP address" value={query} onChange={(e) => setQuery(e.target.value)} />
         <button type="submit">Search</button>
       </form>
+
       {loading && <p>Loading!</p>}
       {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+
       {ipData && (
         <div classname="results">
           <p><bold>IP:</bold>{ipData.ip}</p>
@@ -64,6 +70,9 @@ function App() {
           <p><bold>Timezone:</bold> {ipData.location?.timezone}</p>
           <p><bold>ISP:</bold>{ipData.isp}</p>
         </div>
+      )}
+
+      {ipData && (<MapView lat={ipData.location?.lat} lng={ipData.location?.lng} label={`${ipData.ip} - ${ipData.location?.city}`} />
       )}
     </div>
   );
