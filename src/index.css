@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -7,4 +7,29 @@
 body {
   font-family: system-ui, sans-serif;
   min-height: 100vh;
+}
+
+.app {
+  padding: 2rem;
+  text-align: center;
+}
+
+form {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+input {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  width: 280px;
+  max-width: 60vw;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
