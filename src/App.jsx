@@ -15,7 +15,7 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-      const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.IPIFY_KEY}&ipAddress=${searchTerm}`;
+      const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_IPIFY_KEY}&ipAddress=${searchTerm}`;
       //send request, and wait 
       const res = await fetch(url);
       //throw erro , send to catch
