@@ -36,10 +36,7 @@ function App() {
       setLoading(false);
     }
   }
-  //this only runs when the search bar goes empty, data returns
-  useEffect(() => {
-    fetchIpData('');
-  }, []);
+
 
 
   //form
